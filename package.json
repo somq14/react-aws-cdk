@@ -1,5 +1,5 @@
 {
-  "name": "react-cdk",
+  "name": "react-aws-cdk",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "STACK_NAME=react-aws-cdk-dev cdk -a 'ts-node ./deployment/app.ts' deploy"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +40,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@aws-cdk/aws-cloudfront": "^1.118.0",
+    "@aws-cdk/aws-cloudfront-origins": "^1.118.0",
+    "@aws-cdk/aws-s3": "^1.118.0",
+    "@aws-cdk/aws-s3-deployment": "^1.118.0",
+    "@aws-cdk/core": "^1.118.0",
+    "aws-cdk": "^1.118.0",
+    "ts-node": "^10.2.0"
   }
 }
