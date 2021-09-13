@@ -22,9 +22,11 @@ export class SpaStack extends cdk.Stack {
     const logBucket = new s3.Bucket(this, "LogBucket");
 
     const distribution = new cloudfront.Distribution(this, "Distribution", {
-      // 配信するコンテンツを指定する
       defaultBehavior: {
+        // 配信するコンテンツを指定する
         origin: new origins.S3Origin(originBucket),
+        // HTTP でアクセスされたら HTTPS へリダイレクトする
+        viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
       // ログの出力先を設定する
       logBucket: logBucket,
